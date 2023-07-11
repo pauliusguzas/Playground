@@ -1,0 +1,20 @@
+{
+  "name": "spectrocoin",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/cli": "^8.12.2",
+    "@wdio/local-runner": "^8.12.1",
+    "@wdio/mocha-framework": "^8.12.1",
+    "@wdio/selenium-standalone-service": "^8.12.1",
+    "@wdio/spec-reporter": "^8.12.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6",
+    "@wdio/appium-service": "^8.12.1",
+    "appium": "^2.0.0",
+    "appium-uiautomator2-driver": "^2.29.2"
+  },
+  "scripts": {
+    "e2e-desktop-chrome": "PLATFORM=desktop-chrome wdio run ./wdio.conf.ts",
+    "e2e-android-chrome": "PLATFORM=android-chrome wdio run ./wdio.conf.ts"
+  }
+}
