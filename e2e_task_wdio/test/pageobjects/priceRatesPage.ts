@@ -62,8 +62,7 @@ class PriceRatesPage extends Page {
                     return await $('[data-cy="rates"]').$(`tr:nth-child(${i}) td:nth-child(3)`);
                 }
             }
-            if (await this.viewMoreButton.isEnabled())
-            {
+            if (await this.viewMoreButton.isEnabled()) {
                 await this.viewMoreButton.click();
             }
             else return;     
