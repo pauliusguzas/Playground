@@ -53,22 +53,20 @@ class PriceRatesPage extends Page {
     }
 
     public async returnRate (name: string) {
-        let nameRowIndex = 0;
-        while (nameRowIndex === 0) {
+        let isFound = false;
+        while (!isFound) {
             for (let i = 1; i < await this.tableRows.length; i++) {
                 let eachColumnName = await $('[data-cy="rates"]').$(`tr:nth-child(${i}) td:nth-child(1)`).getText();
                 if (eachColumnName.includes(name)) {
-                    nameRowIndex = i;
-                    return await $('[data-cy="rates"]').$(`tr:nth-child(${nameRowIndex}) td:nth-child(3)`);
+                    isFound = true;
+                    return await $('[data-cy="rates"]').$(`tr:nth-child(${i}) td:nth-child(3)`);
                 }
             }
-            if (nameRowIndex === 0) {
-                if (await this.viewMoreButton.isEnabled())
-                {
-                    await this.viewMoreButton.click();
-                }
-                else return;
+            if (await this.viewMoreButton.isEnabled())
+            {
+                await this.viewMoreButton.click();
             }
+            else return;     
         }
     }
 }
